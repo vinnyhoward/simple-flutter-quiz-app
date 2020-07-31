@@ -5,16 +5,18 @@ void main() => runApp(App());
 class App extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return QuizWidget();
+    return _QuizWidget();
   }
 }
 
-class QuizWidget extends State<App> {
+class _QuizWidget extends State<App> {
   int _answerIndex = 0;
 
-  void answerQuestions() {
+  void _answerQuestions() {
     setState(() {
-      _answerIndex = _answerIndex + 1;
+      if (_answerIndex <= 1) {
+        _answerIndex = _answerIndex + 1;
+      }
     });
     print('current answer index - ${_answerIndex}');
   }
@@ -37,7 +39,7 @@ class QuizWidget extends State<App> {
               Text(quizQuestions[_answerIndex]),
               RaisedButton(
                 child: Text('Answer 1'),
-                onPressed: answerQuestions,
+                onPressed: _answerQuestions,
               ),
               RaisedButton(
                   child: Text('Answer 2'),
