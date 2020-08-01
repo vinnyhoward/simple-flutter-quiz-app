@@ -13,7 +13,6 @@ class App extends StatefulWidget {
 
 class _QuizWidget extends State<App> {
   int _answerIndex = 0;
-
   void _answerQuestions() {
     setState(() {
       if (_answerIndex <= 1) {
