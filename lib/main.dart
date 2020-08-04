@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_flutter_quiz_app/shared/styles/styles.dart';
 
 import './question.dart';
 
