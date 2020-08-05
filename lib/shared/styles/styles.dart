@@ -8,6 +8,6 @@ const String FontNameDefault = 'JetBrainsMono';
 
 const QuizQuestionBody = TextStyle(
   fontFamily: FontNameDefault,
-  fontWeight: FontWeight.w600,
-  fontSize: MediumTextSize,
+  fontWeight: FontWeight.w900,
+  fontSize: LargeTextSize,
 );

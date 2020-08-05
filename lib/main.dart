@@ -16,8 +16,10 @@ class _QuizWidget extends State<App> {
   int _answerIndex = 0;
   void _answerQuestions() {
     setState(() {
-      if (_answerIndex <= 1) {
+      if (_answerIndex <= 2) {
         _answerIndex = _answerIndex + 1;
+      } else {
+        _answerIndex = 0;
       }
     });
     print('current answer index - ${_answerIndex}');
@@ -26,7 +28,8 @@ class _QuizWidget extends State<App> {
   var quizQuestions = [
     'What\'s your favorite anime',
     'What\'s your favorite video game',
-    'If you could have any super power; what would you want?'
+    'If you could have any super power; what would you want?',
+    'WHO IS THE BEST Z FIGHTER'
   ];
 
   @override
