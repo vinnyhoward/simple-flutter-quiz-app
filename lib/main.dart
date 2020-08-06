@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:simple_flutter_quiz_app/shared/styles/styles.dart';
 
 import './question.dart';
+import './answer.dart';
 
 void main() => runApp(App());
 
@@ -16,7 +17,7 @@ class _QuizWidget extends State<App> {
   int _answerIndex = 0;
   void _answerQuestions() {
     setState(() {
-      if (_answerIndex <= 2) {
+      if (_answerIndex <= 3) {
         _answerIndex = _answerIndex + 1;
       } else {
         _answerIndex = 0;
@@ -26,10 +27,36 @@ class _QuizWidget extends State<App> {
   }
 
   var quizQuestions = [
-    'What\'s your favorite anime',
-    'What\'s your favorite video game',
-    'If you could have any super power; what would you want?',
-    'WHO IS THE BEST Z FIGHTER'
+    {
+      'questionText': 'What\s your favorite color?',
+      'answers': ['Blue', 'Black', 'Red', 'Teal']
+    },
+    {
+      'questionText': 'What\s your favorite animal?',
+      'answers': ['Dog', 'Fish', 'Tiger', 'Dinosaur']
+    },
+    {
+      'questionText': 'What\s your favorite anime?',
+      'answers': ['My Hero Academia', 'Naruto', 'Cowboy Bebep', 'Berserk']
+    },
+    {
+      'questionText': 'What\s your favorite movie?',
+      'answers': [
+        'Fight Club',
+        'Inception',
+        'Mad Max: Fury Road',
+        'Avengers Infinity Wars'
+      ]
+    },
+    {
+      'questionText': 'What\s your favorite public figure?',
+      'answers': [
+        'Donald Trump',
+        'Joe Biden',
+        'Emma Watts',
+        'Weird Al Yankavich'
+      ]
+    },
   ];
 
   @override
@@ -41,22 +68,11 @@ class _QuizWidget extends State<App> {
           ),
           body: Column(
             children: <Widget>[
-              Question(quizQuestions[_answerIndex]),
-              RaisedButton(
-                child: Text('Answer 1'),
-                onPressed: _answerQuestions,
-              ),
-              RaisedButton(
-                  child: Text('Answer 2'),
-                  onPressed: () => print('Stupid ass function expression')),
-              RaisedButton(
-                  child: Text('Answer 3'),
-                  onPressed: () =>
-                      print('Another stupid ass function expression')),
-              RaisedButton(
-                  child: Text('Answer 4'),
-                  onPressed: () =>
-                      print('Yet another stupid ass function expression')),
+              Question(quizQuestions[_answerIndex]['questionText']),
+              ...(quizQuestions[_answerIndex]['answers'] as List<String>)
+                  .map((question) {
+                return Answer(_answerQuestions, question);
+              }).toList(),
             ],
           )),
     );
