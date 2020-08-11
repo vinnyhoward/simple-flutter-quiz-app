@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 // import 'package:simple_flutter_quiz_app/shared/styles/styles.dart';
 
-import './question.dart';
-import './answer.dart';
 import './quiz.dart';
 
 void main() => runApp(App());
@@ -21,9 +19,9 @@ class _QuizWidget extends State<App> {
 
   void _answerQuestions(List correctAnswers, String question) {
     if (correctAnswers.contains(question)) {
-      print('Correct Answer!');
+      setState(() => _score += 1);
     } else {
-      return print('Wrong Answer');
+      print('Wrong Answer $_answerIndex');
     }
 
     if (_answerIndex < quizQuestions.length - 1) {
@@ -31,10 +29,18 @@ class _QuizWidget extends State<App> {
         _answerIndex = _answerIndex + 1;
       });
     } else {
-      setState(() {
-        _answerIndex = 0;
-      });
+      _checkIfPassing();
     }
+  }
+
+  void _checkIfPassing() {
+    double currentScorePercentage = (_score / quizQuestions.length) * 100;
+    if (currentScorePercentage > 80) {
+      print('You passed! $currentScorePercentage');
+    } else {
+      print('Bitch you failed $currentScorePercentage');
+    }
+    setState(() => _answerIndex = 0);
   }
 
   final quizQuestions = const [
@@ -52,7 +58,7 @@ class _QuizWidget extends State<App> {
     {
       'questionText': 'What\'s the job of "variables"?',
       'answers': [
-        'Variables allow you to execute code whenver you want',
+        'Variables allow you to execute code whenever you want',
         'Variables describe which type of data you\'re working with',
         'Variables hold data with which you can work in your code'
       ],
