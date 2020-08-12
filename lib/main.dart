@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-// import 'package:simple_flutter_quiz_app/shared/styles/styles.dart';
-
 import './quiz.dart';
+import './result.dart';
 
 void main() => runApp(App());
 
@@ -28,19 +27,7 @@ class _QuizWidget extends State<App> {
       setState(() {
         _answerIndex = _answerIndex + 1;
       });
-    } else {
-      _checkIfPassing();
     }
-  }
-
-  void _checkIfPassing() {
-    double currentScorePercentage = (_score / quizQuestions.length) * 100;
-    if (currentScorePercentage > 80) {
-      print('You passed! $currentScorePercentage');
-    } else {
-      print('Bitch you failed $currentScorePercentage');
-    }
-    setState(() => _answerIndex = 0);
   }
 
   final quizQuestions = const [
@@ -140,11 +127,13 @@ class _QuizWidget extends State<App> {
           appBar: AppBar(
             title: Text('My first App'),
           ),
-          body: Quiz(
-            answerIndex: _answerIndex,
-            answerQuestions: _answerQuestions,
-            quizQuestions: quizQuestions,
-          )),
+          body: _answerIndex < quizQuestions.length - 1
+              ? Quiz(
+                  answerIndex: _answerIndex,
+                  answerQuestions: _answerQuestions,
+                  quizQuestions: quizQuestions,
+                )
+              : Result(finalScore: (_score / quizQuestions.length) * 100)),
     );
   }
 }
