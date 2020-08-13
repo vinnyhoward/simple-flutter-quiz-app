@@ -7,7 +7,7 @@ class Result extends StatelessWidget {
   Result({this.finalScore});
 
   String get resultPhrase {
-    var resultText;
+    var resultText = 'You just plain; sorry';
     if (finalScore == 100) {
       resultText = 'You passed with flying colors!! Congrats🎉';
     } else if (finalScore > 80) {
@@ -25,10 +25,21 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Text(
-      resultPhrase,
-      style: ScoreStyles,
-      textAlign: TextAlign.center,
-    ));
+      child: Container(
+          child: Column(
+        children: [
+          Text(
+            finalScore.toString(),
+            style: ResultMessageStyles,
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            resultPhrase,
+            style: ScoreStyles,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      )),
+    );
   }
 }

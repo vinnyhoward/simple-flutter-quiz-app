@@ -22,5 +22,5 @@ const ScoreStyles = TextStyle(
 const ResultMessageStyles = TextStyle(
   fontFamily: SecondaryFontName,
   fontWeight: FontWeight.w600,
-  fontSize: MediumTextSize,
+  fontSize: BodyTextSize,
 );
