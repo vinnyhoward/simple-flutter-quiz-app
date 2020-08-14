@@ -1,16 +1,7 @@
-# simple_flutter_quiz_app
+# Dart Quiz App
 
-A new Flutter project.
+What better way to learn about Dart and Flutter then by creating a simple quiz application on Dart and Flutter! Genius right?
 
-## Getting Started
+## Figma Links
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Prototype](https://www.figma.com/file/5nlCwcVMonWnTj0nBE14Mo/dart_quiz_app_concept?node-id=0%3A1)
