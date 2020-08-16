@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import './question.dart';
 import './answer.dart';
 
-class Quiz extends StatelessWidget {
+class QuestionList extends StatelessWidget {
   final List<Map<String, Object>> quizQuestions;
   final int answerIndex;
   final Function answerQuestions;
 
-  Quiz(
+  QuestionList(
       {@required this.quizQuestions,
       @required this.answerQuestions,
       @required this.answerIndex});
