@@ -6,7 +6,7 @@ import './shared/mockData.dart';
 
 // widgets
 import './home/home.dart';
-import './quiz.dart';
+import 'quizList.dart';
 import './result.dart';
 
 void main() => runApp(MaterialApp(
