@@ -3,8 +3,9 @@ import './shared/styles/styles.dart';
 
 class Result extends StatelessWidget {
   final double finalScore;
+  final Function resetQuestions;
 
-  Result({this.finalScore});
+  Result({@required this.finalScore, @required this.resetQuestions});
 
   String get resultPhrase {
     var resultText = 'You just plain; sorry';
@@ -38,6 +39,12 @@ class Result extends StatelessWidget {
             style: ScoreStyles,
             textAlign: TextAlign.center,
           ),
+          RaisedButton(
+            color: Colors.blueAccent,
+            textColor: Colors.white,
+            child: Text('Reset'),
+            onPressed: resetQuestions,
+          )
         ],
       )),
     );

@@ -39,6 +39,12 @@ class _QuizWidget extends State<Quiz> {
     }
   }
 
+  void _resetQuestions() {
+    setState(() {
+      _answerIndex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext ctx) {
     return MaterialApp(
@@ -52,7 +58,9 @@ class _QuizWidget extends State<Quiz> {
                   answerQuestions: _answerQuestions,
                   quizQuestions: quizQuestions,
                 )
-              : Result(finalScore: (_score / quizQuestions.length) * 100)),
+              : Result(
+                  finalScore: (_score / quizQuestions.length) * 100,
+                  resetQuestions: _resetQuestions)),
     );
   }
 }
