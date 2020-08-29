@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
+import '../shared/styles/styles.dart';
 
 class DifficultyList extends StatelessWidget {
   DifficultyList();
@@ -17,17 +17,20 @@ class DifficultyList extends StatelessWidget {
               width: 350.0,
               height: 400.0,
               margin: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: EdgeInsets.all(25.0),
               decoration: BoxDecoration(
                   color: Colors.red,
                   borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Quiz()),
-                  );
-                },
-                child: Container(height: 200, width: 200),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Easy',
+                    style: CardHeader,
+                  ),
+                ],
               ),
             ),
             Container(
@@ -66,3 +69,13 @@ class DifficultyList extends StatelessWidget {
         ));
   }
 }
+
+// child: InkWell(
+//   onTap: () {
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(builder: (context) => Quiz()),
+//     );
+//   },
+//   child: Container(height: 200, width: 200),
+// ),
